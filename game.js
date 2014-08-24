@@ -188,7 +188,7 @@ $(function() {
                 if (c && c.x >= midx && c.x < midx + 50) {
                     if (detect_collision_2d(c, {y: nyan_y})) {
                         coins[i] = undefined;
-                        score++;
+                        score+=10;
                     }
                 }
             }
@@ -231,6 +231,10 @@ $(function() {
 
             if (handle_collisions()) {
                 timer = setTimeout(tick, 20, n+1);
+            }
+
+            if (n%250 == 0 && n > 0) {
+                score++;
             }
         }
         tick(0);
